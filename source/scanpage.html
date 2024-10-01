@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title>
+    <link rel="stylesheet" href="../style/scanpage.css">
+</head>
+<body>
+
+    <div class="header">
+        <img src="fotoprofile.jpg" alt="Icon" class="icon">
+        <div class="title">MONUMEN PERS NASIONAL</div>
+    </div>
+
+    <div class="content">
+        <p>Arahkan kamera pada QR Code!</p>
+
+        <div class="qr-scanner-container">
+            <video id="video" autoplay playsinline></video>
+            <div class="scanner-overlay">
+                <div class="scanner-line"></div>
+            </div>
+        </div>
+
+        <p id="result">Memindai...</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+    <script>
+        const video = document.getElementById('video');
+        const resultElement = document.getElementById('result');
+        const canvas = document.createElement('canvas');
+        const canvasContext = canvas.getContext('2d');
+
+        function startCamera() {
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } })
+                .then(stream => {
+                    video.srcObject = stream;
+                    video.play();
+                    requestAnimationFrame(scanQRCode);
+                })
+                .catch(err => {
+                    resultElement.textContent = 'Gagal mengakses kamera!';
+                });
+        }
+
+        function scanQRCode() {
+            if (video.readyState === video.HAVE_ENOUGH_DATA) {
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                canvasContext.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                const imageData = canvasContext.getImageData(0, 0, canvas.width, canvas.height);
+                const code = jsQR(imageData.data, imageData.width, imageData.height);
+
+                if (code) {
+                    resultElement.textContent = `QR Code ditemukan: ${code.data}`;
+                    sessionStorage.setItem('scannedQRUrl', code.data);
+                    window.location.href = 'objectdetail.html';
+                } else {
+                    resultElement.textContent = 'Memindai...';
+                }
+            }
+            requestAnimationFrame(scanQRCode);
+        }
+
+        startCamera();
+    </script>
+
+</body>
+</html>

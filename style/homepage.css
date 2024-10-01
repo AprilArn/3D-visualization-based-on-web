@@ -1,0 +1,132 @@
+/* Ukuran default untuk semua layar */
+body {
+
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    background-color: #f8f8f8;
+    padding-top: 60px; /* Memberikan ruang untuk header */
+
+}
+
+.header {
+
+    width: 100%;
+    background-color: #D3D3D3;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+}
+
+.header .icon {
+    
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+    object-fit: cover; /* Agar gambar tetap sesuai dengan ukuran tanpa distorsi */
+    margin-right: 10px;
+    
+}
+
+.header .title {
+    
+    font-size: 18px;
+    font-weight: bold;
+    
+}
+
+.content {
+    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    padding-right: 100px;
+    padding-left: 100px;
+    
+}
+
+.content h1 {
+    
+    font-size: 24px;
+    margin-bottom: 10px;
+    
+}
+
+.content p {
+    
+    font-size: 14px;
+    margin-bottom: 20px;
+    
+}
+
+.button {
+    
+    padding: 10px 20px;
+    background-color: #87CEFA;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 80px;
+    
+}
+
+/* Media query untuk layar smartphone (lebar max 600px) */
+@media (max-width: 600px) {
+    
+    .header {
+        
+        padding: 10px 5px;
+        
+    }
+
+    .header .icon {
+        
+        width: 35px;
+        height: 35px;
+        
+    }
+
+    .header .title {
+        
+        font-size: 16px;
+        
+    }
+
+    .content h1 {
+        
+        font-size: 32px;
+        
+    }
+
+    .content p {
+        
+        font-size: 12px;
+        margin-bottom: 15px;
+        padding: 0 10px; /* Memberikan padding untuk teks agar tidak menempel ke tepi layar */
+        
+    }
+
+    .button {
+        
+        padding: 8px 18px;
+        font-size: 14px;
+        
+    }
+
+}

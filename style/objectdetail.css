@@ -1,0 +1,100 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    height: 100vh;
+    padding-top: 60px;
+}
+
+.header {
+    width: 100%;
+    background-color: #D3D3D3;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header .icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /* Membuat gambar menjadi lingkaran */
+    object-fit: cover; /* Agar gambar tetap sesuai dengan ukuran tanpa distorsi */
+    margin-right: 10px;
+}
+
+.header .title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+    width: 80%;
+}
+
+.content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.object-photo {
+    width: 300px;
+    height: 300px;
+    background-color: #696969;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    margin-bottom: 20px;
+    width: 80%;
+    text-align: center;
+}
+
+.button-3d {
+    background-color: #D8BFD8;
+}
+
+.button-description {
+    background-color: #FFE4B5;
+}
+
+/* Responsif untuk layar smartphone */
+@media (max-width: 600px) {
+    .content h2 {
+        font-size: 18px;
+    }
+
+    .object-photo {
+        width: 250px;
+        height: 250px;
+    }
+
+    .button {
+        font-size: 14px;
+        width: 100%;
+    }
+}

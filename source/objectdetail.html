@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Objek</title>
+    <link rel="stylesheet" href="../style/objectdetail.css">
+</head>
+<body>
+
+    <div class="header">
+        <img src="fotoprofile.jpg" alt="Icon" class="icon">
+        <div class="title">MONUMEN PERS NASIONAL</div>
+    </div>
+
+    <div class="content">
+        <h2>NAMA OBJEK</h2>
+
+        <div class="object-photo">
+            <p>FOTO OBJEK</p>
+        </div>
+
+        <a href="3d_viewer.html" class="button button-3d">See full object in 3D</a>
+        <a id="description-link" href="#" class="button button-description">Description</a>
+    </div>
+
+    <script>
+        // Mengambil URL dari session storage yang berasal dari QR code
+        const scannedUrl = sessionStorage.getItem('scannedQRUrl');
+
+        // Jika URL ada, set href tombol "Description"
+        if (scannedUrl) {
+            document.getElementById('description-link').href = scannedUrl;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f8f8f8;
+    height: 100vh;
+    padding-top: 60px;
+}
+
+.header {
+    width: 100%;
+    background-color: #D3D3D3;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header .icon {
+    width: 40px;
+    height: 40px;
+    background-color: #1e90ff;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.header .title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-grow: 1; /* Agar elemen ini mengambil ruang yang tersisa dari layar */
+    padding-bottom: 60px;
+}
+
+.qr-scanner-container {
+    position: relative;
+    width: 80vw;
+    height: 80vw;
+    max-width: 340px;
+    max-height: 340px;
+    border: 5px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px; /* Membulatkan sudut frame */
+    overflow: hidden;
+}
+
+.qr-scanner-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.scanner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+}
+
+.scanner-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: rgba(255, 0, 0, 0.7);
+    animation: scanner-line-move 3s infinite;
+}
+
+@keyframes scanner-line-move {
+    0% {
+        top: 0;
+    }
+    50% {
+        top: 100%;
+    }
+    100% {
+        top: 0;
+    }
+}
+
+#result {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+/* Responsif untuk layar smartphone */
+@media (max-width: 600px) {
+    .content p {
+        font-size: 14px;
+    }
+
+    .qr-scanner-container {
+        width: 80vw;
+        height: 80vw;
+    }
+
+    #result {
+        font-size: 14px;
+    }
+}
